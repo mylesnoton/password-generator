@@ -5,7 +5,7 @@ import (
 )
 
 func TestNewPassword(t *testing.T) {
-	password, _ := NewPassword(10, true, true)
+	password, _ := NewPassword(10)
 
 	if len(password) != 10 {
 		t.Fail()
@@ -13,7 +13,7 @@ func TestNewPassword(t *testing.T) {
 }
 
 func TestNewPasswordHasLowerChar(t *testing.T) {
-	password, _ := NewPassword(10, true, true)
+	password, _ := NewPassword(10)
 
 	lowers := []byte("abcdefghijklmnopqrstuvwxyz")
 	found := false
@@ -32,7 +32,7 @@ func TestNewPasswordHasLowerChar(t *testing.T) {
 }
 
 func TestNewPasswordHasUpperChar(t *testing.T) {
-	password, _ := NewPassword(10, true, true)
+	password, _ := NewPassword(10)
 
 	uppers := []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	found := false
@@ -51,7 +51,7 @@ func TestNewPasswordHasUpperChar(t *testing.T) {
 }
 
 func TestNewPasswordHasSpecialChar(t *testing.T) {
-	password, _ := NewPassword(10, true, true)
+	password, _ := NewPassword(10)
 
 	specials := []byte("!\"#$%&'()*,+-./_[]:;<>=@?{}|~^")
 	found := false
@@ -70,7 +70,7 @@ func TestNewPasswordHasSpecialChar(t *testing.T) {
 }
 
 func TestNewPasswordHasNumber(t *testing.T) {
-	password, _ := NewPassword(10, true, true)
+	password, _ := NewPassword(10)
 
 	numbers := []byte("0123456789")
 	found := false
