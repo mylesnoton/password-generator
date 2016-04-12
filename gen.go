@@ -16,6 +16,10 @@ func NewPassword(length int) (string, error) {
 func generate(length int) (string, error) {
 	start := time.Now()
 
+	if length < 8 || length > 100 {
+		return "", errors.New("Your password should be between 8 and 100 characters long")
+	}
+
 	password := ""
 	char := []byte("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*,+-./_[]:;<>=@?{}|~^")
 

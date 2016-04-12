@@ -95,3 +95,19 @@ func TestGenerateRandomNumber(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestPasswordLengthShort(t *testing.T) {
+	password, err := NewPassword(5)
+
+	if password == "" && err == nil {
+		t.Fail()
+	}
+}
+
+func TestPasswordLengthLong(t *testing.T) {
+	password, err := NewPassword(200)
+
+	if password == "" && err == nil {
+		t.Fail()
+	}
+}
