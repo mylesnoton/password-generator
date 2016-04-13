@@ -1,6 +1,7 @@
 package passgen
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -98,16 +99,16 @@ func TestGenerateRandomNumber(t *testing.T) {
 
 func TestPasswordLengthShort(t *testing.T) {
 	password, err := NewPassword(5)
-
-	if password == "" && err == nil {
+	fmt.Println(err)
+	if err != nil {
 		t.Fail()
 	}
 }
 
 func TestPasswordLengthLong(t *testing.T) {
-	password, err := NewPassword(200)
+	password, err := NewPassword(100)
 
-	if password == "" && err == nil {
+	if err != nil {
 		t.Fail()
 	}
 }

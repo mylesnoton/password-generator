@@ -4,9 +4,7 @@ import (
 	"crypto/rand"
 	"errors"
 	//"fmt"
-	"log"
 	"math/big"
-	"time"
 )
 
 func NewPassword(length int) (string, error) {
@@ -14,10 +12,8 @@ func NewPassword(length int) (string, error) {
 }
 
 func generate(length int) (string, error) {
-	start := time.Now()
-
-	if length < 8 || length > 100 {
-		return "", errors.New("Your password should be between 8 and 100 characters long")
+	if length < 8 || length > 50 {
+		return "", errors.New("Your password should be between 8 and 50 characters long")
 	}
 
 	password := ""
@@ -28,8 +24,6 @@ func generate(length int) (string, error) {
 		password += string(char[num])
 	}
 
-	elapsed := time.Since(start)
-	log.Printf("Exec took %s", elapsed)
 	return password, nil
 }
 
