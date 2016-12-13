@@ -1,56 +1,67 @@
-# Go Password Generator
+# Password Generator
 
-A Go package to generate random password strings, it can be configured to generate alphanumeric or numeric passwords of a given length.
+[![CircleCI](https://circleci.com/gh/mylesnoton/passgen.svg?style=svg&circle-token=01ef058c08b109581863046351ca41e38eb8a07e)](https://circleci.com/gh/mylesnoton/passgen)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mylesnoton/passgen/blob/master/LICENSE)
+
+A very simple tool to generate passwords of a specified length and complexity, can be used from the command line or imported as a package. Uses Go's build in random number generator, although hasn't been tested for true randomness as yet.
 
 ## Installation
 
-Import the `bitbucket.org/mylesnoton/passgen` package into your application
+To use the passgen binary from the command line, run:
 
-## Usage
+```bash
+$ make install
+```
 
-This is a very basic example of how to import and use the package:
+If you are using it as a package, run:
 
-    package main
+```bash
+$ go get github.com/mylesnoton/passgen/generator
+```
 
-    import (
-        "bitbucket.org/mylesnoton/passwordgen"
-        "fmt"
-    )
+## Command Line Usage
 
-    func main() {
-        fmt.Println(passwordgen.Gen(20, true, true))
-    }
+To generate a 32 character password with a combination of lower and uppercase letters, numbers and special chars, use:
 
-## Configuration
+```bash
+$ passgen --length 32
+```
 
+To generate a 32 character password with a combination of lower and uppercase letters and numbers without an special chars, use:
 
+```bash
+$ passgen --length 32 --no-special
+```
+
+## Package Usage
+
+You can import the generator package into your own project and implement it like this.
+
+```
+package main
+
+import (
+    "github.com/mylesnoton/passgen/generator"
+    "fmt"
+)
+
+func main() {
+    fmt.Println(generator.NewPassword(32))
+}
+```
 
 ## Tests
 
 Tests are included, using the built in Go testing package, to run the tests, execute the following command:
 
-`go test bitbucket.org/mylesnoton/passwordgen`
+`go test github.com/mylesnoton/passgen/...`
+
+## Improvements
+
+* Test the randomness of the passwords properly
+* Make it more useful
+* Allow pronouncable words
+* Provide an API maybe
 
 ## License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Myles Noton
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Password Generator is distributed using the MIT License, see LICENSE
