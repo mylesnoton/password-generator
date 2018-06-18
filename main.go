@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/mylesnoton/passgen/generator"
+	"github.com/mylesnoton/password-generator/generator"
 )
 
 func main() {

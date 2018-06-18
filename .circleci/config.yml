@@ -2,8 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/golang:1.8
-    working_directory: /go/src/github.com/mylesnoton/passgen
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/mylesnoton/password-generator
     steps:
       - checkout
       - run: go get -v -t -d ./...
