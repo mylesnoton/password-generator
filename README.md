@@ -1,6 +1,5 @@
 # Password Generator
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mylesnoton/password-generator/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mylesnoton/password-generator/tree/master)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mylesnoton/password-generator/blob/master/LICENSE)
 
 A very simple tool to generate passwords of a specified length and complexity, can be used from the command line or imported as a package. Uses Go's build in random number generator, although hasn't been tested for true randomness as yet.
